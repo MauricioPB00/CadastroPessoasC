@@ -1,0 +1,321 @@
+#include <stdio.h>
+#include <locale.h>
+#include <time.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+int i=0;
+int b=0;
+struct hyper{
+	char nome[50];
+	char email[50];
+	char sexo[10];
+	char data [15];
+	int fone;
+	char cpf[15];
+	int codigo;
+	
+};
+
+main(){
+	struct hyper c[99];
+	int resposta,g;
+	char nomebusca[50];
+	int busc;
+	int j=0;															// RESPOSTA = = 4
+	int codbusca;
+	
+
+
+	system ("color 06");
+	printf ("          =================================\n");
+	printf ("                BEM VINDO A HYPERSOFT");
+	printf ("\n");
+	printf ("          =================================\n");
+	
+		
+	for (g=0;g<99;g++){	
+	system ("color 06");
+	
+	
+	printf ("============================================================\n");
+	printf ("                O QUE O SENHOR(a) PROCURA ?");
+	printf ("\n");
+	printf ("\n");
+	printf ("1 - PARA CRIAR UM CADASTRO   ( DIGITE '1' )\n");
+	printf ("\n");
+	printf ("2 - PARA ALTERACAO DE DADOS  ( DIGITE '2' )\n");
+	printf ("\n");
+	printf ("3 - PARA EXCLUSAO DO CLIENTE ( DIGITE '3')\n");
+	printf ("\n");
+	printf ("4 - PARA CONSULTA DE CLIENTE ( DIGITE '4')\n");
+	printf ("\n");
+	printf ("5 - PARA LISTA DOS CADASTROS ( DIGITE '5')\n");
+	printf ("\n");
+	printf ("6 - PARA CANCELAR A OPERACAO ( DIGITE '6')\n");
+	printf ("===========================================================\n");
+	scanf ("%i", &resposta);
+
+
+
+
+    if (resposta == 6){                                        //PASSO 06
+	system("cls");
+	system ("color 02");
+    printf("================================\n");
+    printf("A OPERACAO ESTA SENDO CANCELADA \n");
+	printf("================================\n");
+	break;	
+}
+
+
+
+
+	if (resposta == 1){                                         //PASSO 01
+	
+	system("cls");
+	printf("     ================================\n");
+	printf ("           BEM VINDO AO CADASTRO\n");
+	printf("     ================================\n");
+	printf ("\n\n");
+	c[i].codigo = i+1;
+
+	printf("	PRIMEIRO PASSO \n");                        // NOME
+	printf (" 1 - INFORME SEU NOME \n");
+	scanf(" %[^\n]s", &c[i].nome);
+	printf ("\n\n");
+
+
+
+	printf(" %s SEJA BEM VINDO AO CADASTRO\n ",c[i].nome);  // CPF
+	printf("2 - INFORME SEU CPF ( xxx.xxx.xxx-xx )\n");
+	scanf("%s",&c[i].cpf);
+	printf ("\n\n");
+
+
+	printf("	TERCEIRO PASSO \n");						// EMAIL
+	printf("INFORME SEU E-MAIL \n");
+	scanf ("%s", &c[i].email);
+	printf ("\n\n");
+
+
+	printf("	QUARTO PASSO \n");							// SEXO
+	printf("INFORME SEU GENERO\n");
+	printf ("\n");
+	printf ("PARA MASCULINO  ---> M \n");
+	printf( "PARA FEMININO   ---> F \n");
+	scanf ("%s", &c[i].sexo);	
+	printf 	("\n\n");
+		
+									if(!strcmp(c[i].sexo, "F")){
+											strcpy(c[i].sexo, "FEMININO");
+											}else{
+											strcpy(c[i].sexo, "MASCULINO");
+											}
+
+
+
+	printf ("	QUINTO PASSO \n");							// DATA
+	printf ("INFORME SUA DATA DE NASCIMENTO \n");
+	printf ("(xx/xx/xxxx)\n");
+	scanf ("%s", &c[i].data);
+	printf ("\n\n");
+
+
+	printf("	SEXTO PASSO \n");						// TELEFONE
+	printf (" 1 - INFORME SEU TELEFONE \n");
+	scanf("%i", &c[i].fone);
+	printf ("\n\n");
+	
+	system("cls");									// LIMPA TELA //
+
+	printf ("          =================================\n");			// QUANDO TERMINA O CADASTRO
+	printf ("                BEM VINDO A HYPERSOFT\n");
+	printf ("	            %s							",c[i].nome);
+	printf ("\n");
+	printf ("          =================================\n");
+	printf ("\n\n");
+	printf ("SEUS DADOS:\n");
+	printf ("NOME: %s \n", c[i].nome);
+	printf ("CPF: %s \n", c[i].cpf);
+	printf ("TELEFONE: %i\n",c[i].fone);
+	printf ("EMAIL: %s\n",c[i].email);
+	printf ("SEXO: %s\n",c[i].sexo);
+	printf ("DATA: %s\n",c[i].data);
+	printf ("CODIGO: %i\n",c[i].codigo);
+	i++;
+		
+}																		// FIM resposta = = 1
+
+
+    if (resposta==4){ 												
+    
+	
+	system("cls"); 																// inicio aq    resposta ==    4
+    
+    printf ("DESEJA FAZER A BUSCA POR ?\n");
+    printf ("1 - NOME:\n");
+    printf ("2 - CODIGO: \n");
+    scanf ("%i",&busc);
+    
+    
+    if (busc == 1){
+   
+		printf("\nDIGITE O NOME DA BUSCA:\n "); 						// aqui e o nome
+		scanf(" %[^\n]s", &nomebusca);
+
+   
+		for(j=0;j<=i;j++){
+			if(!strcmp(c[j].nome, nomebusca)){
+				
+				if (c[j].codigo == 0){
+				
+		printf (" NAO HA NOME CORRESPONDENTE\n");
+			}else{
+		
+			printf ("=================================\n");
+			printf ("NOME: %s \n", c[j].nome);
+			printf ("CPF: %s \n", c[j].cpf);
+			printf ("TELEFONE: %i\n",c[j].fone);
+			printf ("EMAIL: %s\n",c[j].email);
+			printf ("SEXO: %s\n",c[j].sexo);
+			printf ("DATA:  %s\n",c[j].data);
+			printf ("=================================\n");	
+			break;
+			} // ELSE		
+}	// IF DO BUSCA ==1
+}	// FOR DO BUSCA ==1    	
+} // if busca ==1
+    	
+  if ( busc == 2){
+  	int flag = 0;
+
+	
+    printf("DIGITE O CODIGO DE BUSCA: "); // aqui esta correto // codigo
+    scanf("%i", &codbusca);
+    for(j=0;j<=i;j++){
+    if (c[j].codigo == codbusca){
+	
+		printf ("=================================\n");
+		printf ("NOME: %s \n", c[codbusca-1].nome);
+		printf ("CPF: %s \n", c[codbusca-1].cpf);
+		printf ("TELEFONE: %i\n",c[codbusca-1].fone);
+		printf ("EMAIL: %s\n",c[codbusca-1].email);
+		printf ("SEXO: %s\n",c[codbusca-1].sexo);
+		printf ("DATA:  %s\n",c[codbusca-1].data);
+		printf ("=================================\n");	
+		flag=1;
+		break;
+}// IF (C[J .COD
+}// IF DO FOR(J)
+if (flag==0){
+	printf ("\nCLIENTE NAO ENCONTRADO\n");
+}
+	
+	} // IF BUSCA ==2
+	
+}	// resposta 04
+
+	
+	if (resposta==5){											// RESPOSTA = = 5
+	system("cls");	
+	for(j=0;j<i;j++){
+		if (c[j].codigo > 0){
+		
+			
+
+	
+			printf ("=================================\n");
+			printf ("NOME: %s \n", c[j].nome);
+			printf ("CODIGO: %i\n",c[j].codigo);
+			printf ("=================================\n");	
+	}			
+	}	
+	}
+
+
+if (resposta == 2){
+
+		system("cls");
+		
+		
+printf ("\n\n\n=================================\n");
+printf ("BEM VINDO A ALTERACAO DE DADOS\n");
+printf ("=================================\n");
+
+
+printf ("QUAL O CODIGO QUE DESEJA ALTERAR:\n");
+scanf ("%i",&codbusca);
+
+		system("cls");
+		
+printf ("O QUE DEJESA ALTERAR:\n");
+printf("    1 - NOME:\n");
+printf("    2 - CPF:\n");
+printf("    3 - TELEFONE:\n");
+printf("    4 - EMAIL:\n");
+printf("    5 - SEXO:\n");
+printf("    6 - DATA:\n");
+scanf ("%i",&b);
+
+
+if (b==1){
+	printf ("\nQUAL O NOME PARA ALTERACAO:\n");
+	scanf (" %[^\n]s",&c[codbusca-1].nome);
+} //fim b 1
+
+
+if (b==2){
+	printf ("\nQUAL O CPF PARA ALTERACAO:\n");
+	scanf ("%s",&c[codbusca-1].cpf);
+}//fim b 2
+
+
+if (b==3){
+	printf ("\nQUAL O TELEFONE PARA ALTERACAO:\n");
+	scanf ("%i",&c[codbusca-1].fone);
+} //fim b 3
+
+
+if (b==4){
+	printf ("\nQUAL O EMAIL PARA ALTERACAO:\n");
+	scanf (" %s",&c[codbusca-1].email);
+} //fim b 4
+
+
+if (b==5){
+	printf ("\nQUAL O SEXO PARA ALTERACAO:\n");
+	printf ("PARA MASCULINO  ---> M \n");
+	printf( "PARA FEMININO   ---> F \n");
+	scanf (" %s",&c[codbusca-1].sexo);
+	
+				if(!strcmp(c[j].sexo, "F")){
+				strcpy(c[j].sexo, "FEMININO");
+				}else{
+				strcpy(c[j].sexo, "MASCULINO");
+}  //FIM ELSE
+} //fim b 5
+
+
+if (b==6){
+	printf ("\nQUAL O DATA PARA ALTERACAO:\n");
+	scanf (" %s",&c[codbusca-1].data);
+} //fim b 6
+
+}     											// fim if 2
+
+
+if (resposta == 3){                         // RESPOSTA 3 
+	
+system("cls");
+	    printf("DIGITE O CODIGO PARA EXCLUSAO: \n");
+   		 scanf("%i", &codbusca);
+	
+		c[codbusca-1].codigo = 0;	
+	printf ("\nO CODIGO FOI EXCLUIDO ! \n\n");
+
+}
+}												// ESSE É DO FOR
+}												// ESSE É DA MAIN
+	
